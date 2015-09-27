@@ -1,4 +1,58 @@
 Basic
 -----
+A host name can be unfriendly name when it randomly generated. Besides the hostname itself, 
+if a domain name part in fqdn can be more than one domain, it is pain for me to ssh to a certain specific host.
+Without using the fqdn, it is nearly impossible to ssh to certain host (as because domainname part can be varied too).
+
+This application will use bash's complete feature to help complete those crytic hostnames from a list of hostnames
+that you're working with. Just simply using two tabs behind ssh.
+
+Setup
+-----
+
+In the file spot_hosts, 
+hosts="echo `cat $HOME/.ssh/myhosts`"
+This line is where you locate a file that has a list of hostnames you're working with.
+
+
+In the file myhosts
+cat myhosts 
+cse123.int.domainx.com
+cse123.int.tdomainy.com
+cxt783.int.wdomainy.com
+
+
+Activate the completion for ssh.
+
+$ complete -p
+complete -F _plenv plenv
+complete -F _rbenv rbenv
+
+$ . spot_hosts 
+
+$ complete -p
+complete -F _plenv plenv
+complete -F _ssh ssh
+complete -F _rbenv rbenv
+
+eg. 1
+$ ssh cs[TAB][TAB]
+It will look like this
+$ ssh cs123.
+cse123.int.domainx.com   cse123.int.tdomainy.com  cse123.th.superdom.com
+
+eg. 2
+$ ssh yf[TAB] --> ssh yf12.int.anotherexam.com
+
+
+
+
+Fact
+----
+- Purposely used for mac os x. Other platform where bash works should support.
+- On Mac, if you already have brew install bash-complete, this will collide with brew version's ssh completion.
+
+Reference
+---------
 - http://www.debian-administration.org/article/316/An_introduction_to_bash_completion_part_1
 - http://www.debian-administration.org/article/317/An_introduction_to_bash_completion_part_2
