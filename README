@@ -9,11 +9,9 @@ that you're working with. Just simply using two tabs behind ssh.
 
 Setup
 -----
-
 * In the file spot_hosts, 
 hosts="echo `cat $HOME/.ssh/myhosts`"
 This line is where you locate a file that has a list of hostnames you're working with.
-
 
 * In the file myhosts
 cat myhosts 
@@ -23,17 +21,19 @@ cxt783.int.wdomainy.com
 
 + Activate the completion for ssh.
 
+# Verify if ssh is not already registered.
 $ complete -p
-complete -F _plenv plenv
-complete -F _rbenv rbenv
+$ 
 
 $ . spot_hosts 
 
+# complete for ssh command is kicked in.
 $ complete -p
-complete -F _plenv plenv
 complete -F _ssh ssh
-complete -F _rbenv rbenv
 
+
+Usage
+-----
 eg. 1
 $ ssh cs[TAB][TAB]
 It will look like this
@@ -42,8 +42,6 @@ cse123.int.domainx.com   cse123.int.tdomainy.com  cse123.th.superdom.com
 
 eg. 2
 $ ssh yf[TAB] --> ssh yf12.int.anotherexam.com
-
-
 
 
 Fact
