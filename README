@@ -1,20 +1,24 @@
 Basic
 -----
-A host name can be unfriendly name when it randomly generated. Besides the hostname itself, 
+A host name can be a unfriendly name when it randomly generated. Besides the hostname itself, 
 if a domain name part in fqdn can be more than one domain, it is pain for me to ssh to a certain specific host.
-Without using the fqdn, it is nearly impossible to ssh to certain host (as because domainname part can be varied too).
+Without using the fqdn, it is nearly impossible to quickly ssh to a certain host (as because domain name part 
+can be varied too, so forget the domain search).
 
 This application will use bash's complete feature to help complete those crytic hostnames from a list of hostnames
 that you're working with. Just simply using two tabs behind ssh.
 
 Setup
 -----
+
+Simply clone repo to any directory. 
+
 * In the file spot_hosts, 
 hosts="echo `cat $HOME/.ssh/myhosts`"
 This line is where you locate a file that has a list of hostnames you're working with.
 
 * In the file myhosts, this file is where you list host names.
-cat myhosts 
+$ cat myhosts 
 cse123.int.domainx.com
 cse123.int.tdomainy.com
 cxt783.int.wdomainy.com
