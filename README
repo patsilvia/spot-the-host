@@ -10,19 +10,18 @@ that you're working with. Just simply using two tabs behind ssh.
 Setup
 -----
 
-In the file spot_hosts, 
+* In the file spot_hosts, 
 hosts="echo `cat $HOME/.ssh/myhosts`"
 This line is where you locate a file that has a list of hostnames you're working with.
 
 
-In the file myhosts
+* In the file myhosts
 cat myhosts 
 cse123.int.domainx.com
 cse123.int.tdomainy.com
 cxt783.int.wdomainy.com
 
-
-Activate the completion for ssh.
++ Activate the completion for ssh.
 
 $ complete -p
 complete -F _plenv plenv
