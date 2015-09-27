@@ -13,7 +13,7 @@ Setup
 hosts="echo `cat $HOME/.ssh/myhosts`"
 This line is where you locate a file that has a list of hostnames you're working with.
 
-* In the file myhosts
+* In the file myhosts, this file is where you list host names.
 cat myhosts 
 cse123.int.domainx.com
 cse123.int.tdomainy.com
